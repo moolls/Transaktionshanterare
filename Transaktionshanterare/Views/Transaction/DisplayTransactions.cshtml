@@ -1,0 +1,69 @@
+@model IEnumerable<Transaction>
+
+@{
+    ViewData["Title"] = "TransactionView";
+}
+
+<h1>Transaktionsdata </h1>
+
+<p>
+    <a asp-action="Categories" class="btn btn-success btn-lg">Lägg till kategorier</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                TransaktionsID
+            </th>
+            <th>
+                Bokföringsdatum
+            </th>
+            <th>
+                Datum för transaktionen
+            </th>
+            <th>
+                Referens
+            </th>
+            <th>
+                Belopp
+            </th>
+            <th>
+                Saldo
+            </th>
+              <th>
+                Kategori
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TransactionID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookingDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TransactionDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Reference)
+             </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Balance)
+            </td>
+             <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+    @Html.ActionLink("Lägg till kategori", "Edit", new { id = item.TransactionID }, new { @class = "btn btn-primary btn-sm" })
+</td>
+        </tr>
+}
+    </tbody>
+</table>

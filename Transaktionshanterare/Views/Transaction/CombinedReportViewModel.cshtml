@@ -1,0 +1,62 @@
+@model CombinedReportViewModel
+@{
+    ViewData["Title"] = "Sammanställd rapport";
+}
+
+<div class="container my-4">
+    <h2 class="mb-3">Rapport per kategori</h2>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Kategori</th>
+                    <th>Antal transaktioner</th>
+                    <th>Inkomster</th>
+                    <th>Utgifter</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.ReportByCategory)
+                {
+                    <tr>
+                        <td>@item.Description</td>
+                        <td>@item.Count</td>
+                        <td>@item.TotalIncome</td>
+                        <td>@item.TotalExpenses</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <h2 class="mt-5 mb-3">Total summering</h2>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Beskrivning</th>
+                    <th>Antal transaktioner</th>
+                    <th>Totala inkomster</th>
+                    <th>Totala utgifter</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.TotalReport)
+                {
+                    <tr>
+                        <td>@item.Description</td>
+                        <td>@item.Count</td>
+                        <td>@item.TotalIncome</td>
+                        <td>@item.TotalExpenses</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div class="text-center mt-4">
+        <a href="@Url.Action("DownloadViewModel", "Transaction")" class="btn btn-primary btn-lg">
+            Ladda ner sammanställd rapport
+        </a>
+    </div>
+</div>

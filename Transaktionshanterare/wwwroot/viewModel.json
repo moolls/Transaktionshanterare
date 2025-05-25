@@ -1,0 +1,36 @@
+{
+  "ReportByCategory": [
+    {
+      "Description": "Dryck",
+      "Count": 3,
+      "TotalIncome": 0,
+      "TotalExpenses": -2949
+    },
+    {
+      "Description": "Mat",
+      "Count": 10,
+      "TotalIncome": 0,
+      "TotalExpenses": -5957.45
+    },
+    {
+      "Description": "\u00D6verf\u00F6ringar",
+      "Count": 6,
+      "TotalIncome": 0,
+      "TotalExpenses": -600
+    },
+    {
+      "Description": "\u00D6vrigt",
+      "Count": 321,
+      "TotalIncome": 154808,
+      "TotalExpenses": -144393.28
+    }
+  ],
+  "TotalReport": [
+    {
+      "Description": "Total",
+      "Count": 340,
+      "TotalIncome": 154808,
+      "TotalExpenses": -153899.73
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+@model List<Category>
+
+@{
+    ViewData["Title"] = "Manage Categories";
+}
+
+<h1>Hantera Kategorier</h1>
+
+<br>
+<br>
+<h3>Lägg till ny Kategori</h3>
+<form asp-action="AddCategory" method="post">
+    <input type="text" name="description" placeholder="Skriv namnet till kategorin" required />
+    <button type="submit" class="btn btn-success mb-2">Lägg till</button>
+</form>
+<br>
+<br>
+
+<h3>Nuvarande Kategorier</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Kategori ID</th>
+            <th>Beskrivning</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var category in Model)
+    {
+        <tr>
+            <td>@category.Id</td>
+            <td>@category.Description</td>
+        </tr>
+    }
+    </tbody>
+</table>
